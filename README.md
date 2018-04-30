@@ -85,7 +85,7 @@ CODE = {' ': '_',	"'": '.----.',	'(': '-.--.-',	')': '-.--.-',	',': '--..--',	'-
 	'M': '--',	'N': '-.',	'O': '---',	'P': '.--.',	'Q': '--.-',	'R': '.-.',	'S': '...',	'T': '-',	'U': '..-',
 	'V': '...-',	'W': '.--',	'X': '-..-',	'Y': '-.--',	'Z': '--..',	'_': '..--.-', '':' '}
 
-inverseMorseAlphabet=dict((v,k) for (k,v) in CODE.items())
+inverseMorseAlphabet = {v: k for k, v in CODE.items()}
 
 def convertToMorseCode(sentence):
     sentence = sentence.upper()
