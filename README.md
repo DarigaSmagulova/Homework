@@ -23,3 +23,59 @@ for num in all_divisors:
 
 
 print('Largest prime factor is ',prime_factors[-1])
+
+
+
+#Write a program that outputs all possibilities to put+or-or nothing between the numbers 1,2,...,9
+# (in this order)
+# such that the result is 100. For example 1 + 2 + 3 - 4 + 5 + 6 + 78 + 9 = 100.
+
+def calculateSum(array):
+    sum=0
+    num=1
+    sign=1
+    for k in range(0,8):
+        if array[k]==0:
+            num=num*10+k+2 # k+2 num
+        else:
+            if sign==2: # look to l
+                sum-=num
+            else:
+                sum+=num
+            sign=array[k]
+            num=k+2
+    if sign==2:
+        sum-=num
+    else:
+        sum+=num
+    return sum
+
+
+
+
+
+def solve(i,array):
+
+    if i==8 :
+        if calculateSum(array) == 100:
+            print(1,end='')
+            for k in range(0,8):
+                if array[k]==1:
+                    print(' + ',end='')
+                if array[k]==2:
+                    print(' - ',end='')
+                print(k+2,end='')
+            print()
+    else:
+        for l in range(0,3):     #000 001 012 etc
+            array[i-1]=l
+            solve(i+1,array)
+
+array=[]
+for n in range(0,8):
+    array.append(0)
+solve(0,array)
+
+
+
+
