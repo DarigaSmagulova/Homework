@@ -102,7 +102,7 @@ def convertToEnglish(sentence1):
         MorsecodedSentence1 += inverseMorseAlphabet[b[character]]
     return MorsecodedSentence1
 
-choice=input("Text or morse: ")
+choice=input("Choose language:Text or morse: ")
 
 
 if choice == "text":
